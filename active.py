@@ -27,7 +27,8 @@ def parse_nmap_output(nmap_output):
             parts = line.split()
             port_number = parts[0].split('/')[0]
             port_state = parts[1]
-            result += (f"Port {port_number} is {port_state}\n")
+            service_name = parts[2]
+            result += (f"Port {port_number} is {port_state}.  The service name is {service_name}\n")
 
     return result.removesuffix("\n")
 
